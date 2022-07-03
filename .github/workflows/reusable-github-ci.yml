@@ -353,13 +353,7 @@ jobs:
               $buildargs += "--mixin", "${{ matrix.config }}"
               $cmakeargs = "--cmake-args", $Env:BIN_ARCH, $Env:HOST_ARCH 
 
-              # multistage build to speed up
-              colcon build $buildargs --packages-up-to fastrtps --packages-skip fastrtps `
-                           --executor parallel $cmakeargs
-              colcon build $buildargs --packages-select fastrtps --cmake-target fastrtps `
-                           --metas ci.meta --executor sequential $cmakeargs
-              colcon build $buildargs --packages-select fastrtps --metas ci.meta `
-                           --executor parallel $cmakeargs
+              colcon build $buildargs --metas ci.meta --executor parallel $cmakeargs
            }
            else
            {
