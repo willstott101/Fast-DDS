@@ -152,7 +152,7 @@ if(ANDROID)
     eprosima_find_thirdparty(android-ifaddrs android-ifaddrs)
 endif()
 
-include_directories(thirdparty/nlohmann-json)
+include_directories(thirdparty/nlohmann-json/nlohmann)
 include_directories(thirdparty/filewatch)
 
 ###############################################################################

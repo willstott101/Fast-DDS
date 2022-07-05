@@ -25,7 +25,7 @@
 #include <fstream>
 #include <string>
 
-#include <json.hpp>
+#include <nlohmann/json.hpp>
 #include <fastrtps/types/TypesBase.h>
 
 namespace eprosima {
