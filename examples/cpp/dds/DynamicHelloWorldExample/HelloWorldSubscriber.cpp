@@ -47,8 +47,7 @@ bool HelloWorldSubscriber::init()
 
     DomainParticipantQos pqos;
     pqos.name("Participant_sub");
-    StatusMask par_mask = StatusMask::subscription_matched() << StatusMask::data_available();
-    mp_participant = DomainParticipantFactory::get_instance()->create_participant(0, pqos, &m_listener, par_mask);
+    mp_participant = DomainParticipantFactory::get_instance()->create_participant(0, pqos, &m_listener, StatusMask::none());
 
     if (mp_participant == nullptr)
     {
