@@ -69,7 +69,14 @@ bool HelloWorldPublisher::init(
         bool reliable,
         bool transient)
 {
+    // Initialize HelloWorld Data
     hello_.index(0);
+    // The data that will be sent has 20 char length, and thus all the bytes must be initialized
+    for (auto& c : hello_.message())
+    {
+        c = 0;
+    }
+    // Copy string in array
     memcpy(hello_.message().data(), "HelloWorld ", strlen("HelloWorld") + 1);
 
     DomainParticipantQos pqos;
